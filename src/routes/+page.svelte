@@ -1,1 +1,1 @@
-<h1>Tetszik a név, Lubik?</h1>
+<h1>Tetszik a név, Kubik?</h1>
