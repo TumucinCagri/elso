@@ -1,1 +1,0 @@
-<h1>Tetszik a név, Kubik?</h1>
