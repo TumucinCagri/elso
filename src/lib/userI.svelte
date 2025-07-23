@@ -65,4 +65,9 @@
         width: 80%;
         border-radius: 20px;
     }
+
+    button:hover {
+        background-color: rgb(79, 79, 79);
+        color: white;
+    }
 </style>
