@@ -8,7 +8,7 @@
 
 <style>
     .hero {
-        background-image: url(top.jpg);
+        background-image: url("https://raw.githubusercontent.com/TumucinCagri/elso/main/static/top1.jpg");
         width: 100vw;
         height: 100vh;
         background-position: center;
