@@ -38,8 +38,7 @@
   *Kötelező bent lenned! Itt zajlanak a megbeszélések.*
 
 - **Trello projektkezelő**  
-  Link: [Trello](#)
-  *Itt követheted a feladataid és a projekt állását.*
+  [Trellon](#) követheted a feladataid és a projekt állását.*
 
 ---
 
