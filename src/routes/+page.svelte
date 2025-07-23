@@ -1,14 +1,18 @@
-<div class="hero">
+<script>
+    let name = 'top1'
+</script>
+
+<div style="background-image: url('/{name}.jpg');" class="hero">
     <div class="box">
         <h1>Welcome to XQ7T Site</h1>
         <p>This is a new technology-built marketplace where you can confidently buy and sell the latest gadgets.</p>
         <button>Join</button>
+        <input type="text" bind:value={name}>
     </div>
 </div>
 
 <style>
     .hero {
-        background-image: url("/top1.jpg");
         width: 100vw;
         height: 100vh;
         background-position: center;
