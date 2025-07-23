@@ -1,5 +1,4 @@
-# Projekt Szabályzat és Telepítési Útmutató
-
+# Projekt Szabályzat
 ---
 
 ## Kötelező eszközök és telepítések
@@ -34,11 +33,11 @@
 ## Kommunikáció
 
 - **Discord közösség**  
-  Csatlakozás: [Discord szerverünk](https://discord.gg/ttFWKWnqeX)  
+  Csatlakozás: [Discord szerverünk](https://discord.gg/FtrCtQE9dZ)  
   *Kötelező bent lenned! Itt zajlanak a megbeszélések.*
 
 - **Trello projektkezelő**  
-  [Trellon](#) követheted a feladataid és a projekt állását.*
+  [Trellon](https://trello.com/invite/b/688187406df80713b9550cd1/ATTI9debb6f1dc82799784d2368d73ba684bD39DEEA0/weanimelist) követheted a feladataid és a projekt állását.*
 
 ---
 
@@ -46,8 +45,8 @@
 
 - Minden nap dolgozz legalább 1-2 órát a projekten!  
 - Mindig **kezdet előtt érdemes `git pull`-t végrehajtani**, hogy a legfrissebb változat legyen nálad!  
-- Minden változást azonnal ments Git-re (`git commit` + `git push`).  
 - Csak a **saját feladataidhoz tartozó fájlokat add hozzá** (`git add <fájlnév>`), soha ne használd a `git add .` vagy `git add --all` parancsokat!  
+- Minden változást azonnal ments Git-re (`git commit` + `git push`).  
 - Mások munkáját **engedély nélkül tilos módosítani vagy felülírni**!  
 - Ha elakadsz, nyugodtan kérj segítséget a csoportban Discordon, ha kell használjuk a Live Share-t!  
 - Tarts rendszeres szüneteket, igyál sok vizet és mozogj! Egészséged az első!
