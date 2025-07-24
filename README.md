@@ -1,3 +1,5 @@
+# - **Have to Read [it](https://github.com/TumucinCagri/elso/blob/main/Have%20to%20README%201.md)**
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
