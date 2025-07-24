@@ -1,4 +1,4 @@
-# - **Have to Read [it](https://github.com/TumucinCagri/elso/blob/main/Have%20to%20README%201.md)**
+# **should read this too [it](https://github.com/TumucinCagri/elso/blob/main/Have%20to%20README%201.md)**
 
 # sv
 
