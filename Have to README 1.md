@@ -1,4 +1,4 @@
-# **[**SvelteKit tutorialt mindenkinek kötelező végigcsinálni a csapatban! Aki ezt nem teszi meg, azt nem csak szájba, hanem seggbe is úgy fogjuk baszni, hogy megtanulja végre rendesen a leckét**](https://svelte.dev/tutorial)**
+# [**SvelteKit tutorialt mindenkinek kötelező végigcsinálni a csapatban! Aki ezt nem teszi meg, azt nem csak szájba, hanem seggbe is úgy fogjuk széjjel fogjuk kúrni, hogy megtanulja végre rendesen a leckét**](https://svelte.dev/tutorial)
 
 
 # Projekt Szabályzat
