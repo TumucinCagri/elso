@@ -1,106 +1,92 @@
 <script>
     let { data } = $props()
 
+    import Cards from '$lib/card.svelte'
+	import { render } from 'svelte/server';
 
-    let index = $state(0)
-    
-    let mennyi = 5
-    
-    let plus = ()=>{
-        index ++
-        index %= mennyi
+
+    let input = $state()
+
+    let yes = $state(false)
+
+
+    let title = $state('')
+    let category = $state('')
+    let content = $state('')
+
+    let ezkell = []
+    let info = {}
+    let kovi = 0
+    for (let i =0; i<data.uzenet.length; i++) {
+        const t = data.uzenet[i]
+        const tt = t.category
+        if (tt in info) {
+            ezkell[info[tt]].push(t)
+        } else {
+            info[tt] = kovi
+            ezkell.push([t])
+            kovi++
+        }
+    console.log(ezkell)
     }
-
-    let indexl = $derived(((((index+1)%mennyi)+mennyi)%mennyi))
-
-    let indexr = $derived(((((index-1)%mennyi)+mennyi)%mennyi))
-
-    let indexlL = $derived(((((indexl+1)%mennyi)+mennyi)%mennyi))
-
-    let indexrL = $derived(((((indexr-1)%mennyi)+mennyi)%mennyi))
-
 </script>
 
-<h1>{index}</h1>
-<h1>{indexl}</h1>
-<h1>{indexr}</h1>
-<h1>...</h1>
-<h1>{indexlL}</h1>
-<h1>{indexrL}</h1>
+<button
+onclick={()=>{
+    yes = !yes
+}}>
+    Upload
 
-<div 
-class="cont">
-    {#each ['szia', 'papus', 'cigany', 'bence', 'tum'] as cigi, i}
-        <div
-        class="card {i==index ? 'center':''} {i==indexl ? 'left':''} {i==indexr ? 'right':''} {i==indexlL ? 'leftL':''} {i==indexrL ? 'rightL':''}">
-            <h1 style="color: white;">{cigi}</h1>
-        </div>
-    {/each}
+</button>
+
+<div class="upload {yes ? 'open':''}">
+    <h1>Make Card</h1>
+    <input bind:value={title} type="text" placeholder="Title*">
+    <input bind:value={category} type="text" placeholder="category*">
+    <textarea bind:value={content} style="width: 95%; max-height:30%; overflow-y:hidden;"></textarea>
+    <button
+    onclick={async ()=>{
+        const response = await fetch('/', {
+            method: 'POST',
+            body: JSON.stringify({
+                'title':title,
+                'category':category,
+                'content':content
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        
+        })
+    location.reload()
+    }}>Send</button>
 </div>
 
 
-<button onclick={plus}>
-    plusz
-</button>
+<h1>{input}</h1>
+
+
+{#each ezkell as adat}
+    <Cards mi={adat}  />
+{/each}
 
 <style>
-    .cont {
-        position: relative;
+    .upload {
+        z-index: 99;
+        position: absolute;
+        background-color: white;
+        width: 200px;
+        height: 500px;
         display: flex;
-        background-color: aquamarine;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 400px;
-        overflow: hidden;
+        flex-direction: column;
+        gap: 17px;
+
+        visibility: hidden;
     }
 
-    .card {
-        position: absolute;
-        width: 350px;
-        height: 350px;
-        background-color: rgb(0, 0, 0);
-        border-radius: 12px;
-        
-        transition: all 1s ease;
-        
-
-
-        background-image: url('/top.jpg');
-        background-position: center;
-        background-size: cover;
-        z-index: 2;
-
-        opacity: 0;
+    .open {
+        visibility: visible;
     }
-
-
-    .center {
-        transform: scale(1.08) rotate(3deg);
-        opacity: 1;
-    }
-
-
-    .left {
-        transform: translateX(-430px) rotateY(-50deg);
-        opacity: 1;
-    }
-
-
-
-    .right {
-        transform:  translateX(430px) rotateY(50deg);
-        opacity: 1;
-    }
-
-    .leftL {
-        transform: translateX(-860px);
-    }
-
-    .rightL {
-        transform: translateX(860px);
-    }
-
-
-
 </style>
