@@ -4,13 +4,12 @@
 
     let index = $state(0)
     
+    let mennyi = 5
     
     let plus = ()=>{
         index ++
-        index %= 5
+        index %= mennyi
     }
-
-    let mennyi = 5
 
     let indexl = $derived(((((index+1)%mennyi)+mennyi)%mennyi))
 
@@ -53,6 +52,7 @@ class="cont">
         align-items: center;
         width: 100%;
         height: 400px;
+        overflow: hidden;
     }
 
     .card {
@@ -63,6 +63,7 @@ class="cont">
         border-radius: 12px;
         
         transition: all 1s ease;
+        
 
 
         background-image: url('/top.jpg');
