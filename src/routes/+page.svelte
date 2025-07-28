@@ -1,53 +1,105 @@
 <script>
-	let characters = ['🥳', '🎉', '✨'];
+    let { data } = $props()
 
-	let confetti = $state(new Array(100)
-		.fill()
-		.map((_, i) => {
-			return {
-				character:
-					characters[i % characters.length],
-				x: Math.random() * 100,
-				y: -20 - Math.random() * 100,
-				r: 0.1 + Math.random() * 1
-			};
-		})
-		.sort((a, b) => a.r - b.r));
 
-	$effect(() => {
-		let frame = requestAnimationFrame(function loop() {
-			frame = requestAnimationFrame(loop);
+    let index = $state(0)
+    
+    
+    let plus = ()=>{
+        index ++
+        index %= 5
+    }
 
-			for (const confetto of confetti) {
-				confetto.y += 0.3 * confetto.r;
-				if (confetto.y > 120) confetto.y = -20;
-			}
-		});
+    let mennyi = 5
 
-		return () => {
-			cancelAnimationFrame(frame);
-		}
-	});
+    let indexl = $derived(((((index+1)%mennyi)+mennyi)%mennyi))
+
+    let indexr = $derived(((((index-1)%mennyi)+mennyi)%mennyi))
+
+    let indexlL = $derived(((((indexl+1)%mennyi)+mennyi)%mennyi))
+
+    let indexrL = $derived(((((indexr-1)%mennyi)+mennyi)%mennyi))
+
 </script>
 
-{#each confetti as c}
-	<span
-		style:left="{c.x}%"
-		style:top="{c.y}%"
-		style:scale={c.r}
-	>
-		{c.character}
-	</span>
-{/each}
+<h1>{index}</h1>
+<h1>{indexl}</h1>
+<h1>{indexr}</h1>
+<h1>...</h1>
+<h1>{indexlL}</h1>
+<h1>{indexrL}</h1>
+
+<div 
+class="cont">
+    {#each ['szia', 'papus', 'cigany', 'bence', 'tum'] as cigi, i}
+        <div
+        class="card {i==index ? 'center':''} {i==indexl ? 'left':''} {i==indexr ? 'right':''} {i==indexlL ? 'leftL':''} {i==indexrL ? 'rightL':''}">
+            <h1 style="color: white;">{cigi}</h1>
+        </div>
+    {/each}
+</div>
+
+
+<button onclick={plus}>
+    plusz
+</button>
 
 <style>
-	span {
-		position: absolute;
-		font-size: 5vw;
-		user-select: none;
-	}
+    .cont {
+        position: relative;
+        display: flex;
+        background-color: aquamarine;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 400px;
+    }
 
-	:global(body) {
-		overflow: hidden;
-	}
+    .card {
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 12px;
+        
+        transition: all 1s ease;
+
+
+        background-image: url('/top.jpg');
+        background-position: center;
+        background-size: cover;
+        z-index: 2;
+
+        opacity: 0;
+    }
+
+
+    .center {
+        transform: scale(1.08) rotate(3deg);
+        opacity: 1;
+    }
+
+
+    .left {
+        transform: translateX(-430px) rotateY(-50deg);
+        opacity: 1;
+    }
+
+
+
+    .right {
+        transform:  translateX(430px) rotateY(50deg);
+        opacity: 1;
+    }
+
+    .leftL {
+        transform: translateX(-860px);
+    }
+
+    .rightL {
+        transform: translateX(860px);
+    }
+
+
+
 </style>
