@@ -32,6 +32,7 @@
 </script>
 
 <button
+style="position: fixed; z-index:100; background-color:white;"
 onclick={()=>{
     yes = !yes
 }}>
@@ -73,7 +74,7 @@ onclick={()=>{
 <style>
     .upload {
         z-index: 99;
-        position: absolute;
+        position: fixed;
         background-color: white;
         width: 200px;
         height: 500px;

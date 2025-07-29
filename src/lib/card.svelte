@@ -28,7 +28,7 @@
 
 <div 
 class="cont">
-    <h1 style="position: absolute; top:5px; left:5px; color:white; text-shadow: 0px 0px 12px black ;">{mi.category}</h1>
+    <h1 style="position: absolute; top:5px; left:5px; color:white; text-shadow: 0px 0px 12px black ;">{mi[0].category}</h1>
     {#each mi as cigi, i}
                     <div
         class="card {i==index ? 'center':''} {i==indexl ? 'left':''} {i==indexr ? 'right':''} {i==indexlL ? 'leftL':''} {i==indexrL ? 'rightL':''}">
